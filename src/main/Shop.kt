@@ -91,6 +91,12 @@ class Shop {
         println("=====ЧЕК=====")
         myCart.showCart()
         myCart.total()
+        Promos().showPromos()
+    }
 
+    fun afterPromo() {
+        println("=====ЧЕК=====")
+        myCart.showCart()
+        myCart.total()
     }
 }

@@ -3,6 +3,15 @@ package main
 
 val myProducts = TestProducts().products
 var myCart: ProductCart = ProductCart(mutableListOf())
+var currentDiscount = Shop().countDiscount()
+    set(value) {
+        if (value > field) {
+            println("Новая скидка применилась\n")
+            field = value
+        }
+        else
+            println("Текущая скидка выше или ровна скидке по промокоду")
+    }
 
 fun main() {
     menu()

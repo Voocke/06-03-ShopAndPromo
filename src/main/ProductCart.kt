@@ -6,8 +6,8 @@ class ProductCart(var contents: MutableList<Products> = mutableListOf()) {
             val index = myProducts.indexOf(myCart.contents[i])
             val sum = products.price * products.count
             println("${index+1}] ${products.count} шт. ${products.productName} $sum руб." +
-                    " - сумма без скидки, скидка ${Shop().countDiscount()}%, " +
-                    "цена с учетом скидки - ${sum - (sum * (Shop().countDiscount()/100.0))}")
+                    " - сумма без скидки, скидка $currentDiscount%, " +
+                    "цена с учетом скидки - ${sum - (sum * (currentDiscount/100.0))}")
         }
     }
     fun total() {
@@ -20,8 +20,8 @@ class ProductCart(var contents: MutableList<Products> = mutableListOf()) {
         contents.forEach { sum += it.price * it.count }
         println("Общая сумма без скидки $sum")
 
-        println("Скидка: ${Shop().countDiscount()}")
-        val sumOffDiscount = sum * (Shop().countDiscount()/100.0)
+        println("Скидка: $currentDiscount%")
+        val sumOffDiscount = sum * (currentDiscount/100.0)
         println("Сумма скидки: $sumOffDiscount")
 
         println("Итого: ${sum - sumOffDiscount}")
